@@ -26,13 +26,7 @@ gateway:
   model: ${HERMES_GATEWAY_MODEL:-deepseek/deepseek-v4-pro}
   provider: ${HERMES_GATEWAY_PROVIDER:-openrouter}
 
-platforms:
-  slack:
-    enabled: ${SLACK_BOT_TOKEN:+true}
-    bot_token: ${SLACK_BOT_TOKEN:-}
-    signing_secret: ${SLACK_SIGNING_SECRET:-}
-    app_token: ${SLACK_APP_TOKEN:-}
-    require_mention: true
+platforms: {}
 
 # MCP Servers
 mcp_servers:
