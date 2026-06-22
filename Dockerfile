@@ -1,11 +1,9 @@
 FROM nousresearch/hermes-agent:latest
-
-# Override CMD to run gateway mode
 CMD ["gateway", "run"]
 
-# Copy skills to the default profile
-COPY skills/ /opt/hermes/profiles/default/skills/
+# Copy skills
+COPY skills/ /opt/hermes/skills-staging/
 
-# Copy startup script that initializes config from env vars
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Add init script
+COPY 03-copy-skills.sh /etc/cont-init.d/03-copy-skills
+RUN chmod +x /etc/cont-init.d/03-copy-skills
